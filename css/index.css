@@ -5,14 +5,16 @@
 }
 html {
   font-size: 62.25%;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  overflow-x: hidden;
 }
 .main-div {
   max-width: 120rem;
+  position: relative;
   padding: 0 3.2rem;
   margin: 0 auto;
 }
@@ -47,13 +49,13 @@ nav img {
 }
 .intro-section {
   display: grid;
-  grid-template-rows: 1fr;
+
   grid-template-columns: 1fr 1fr;
 }
 .imgs-div {
   background-image: linear-gradient(to right, #d989f6, #fcabe4);
   border-bottom-left-radius: 15rem;
-  position: relative;
+  position: absolute;
   width: 85rem;
   height: 75rem;
   top: -27rem;
@@ -104,4 +106,65 @@ nav img {
   border-radius: 2rem;
   color: #fff;
   font-weight: 500;
+}
+/* rem and em do not depend on html font-size in
+    media queries!instead, 1rem = 1em = 16px
+*/
+
+/* ************************ */
+/* Below 1334px (smaller desktops) */
+/* *********************** */
+
+/*  1334 / 16 = 84 */
+@media (max-width: 84em) {
+  .intro-section {
+    max-width: 120rem;
+  }
+}
+
+/* ************************ */
+/* Below 1200px (Landscape tablets) */
+/* *********************** */
+
+@media (max-width: 75em) {
+  html {
+    /* 9px / 16px */
+    font-size: 56.25%;
+  }
+}
+
+/**************************/
+/* BELOW 944px (Tablets) */
+/**************************/
+
+@media (max-width: 59em) {
+  html {
+    /* 9px / 16px */
+    font-size: 50%;
+  }
+
+  .intro-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/**************************/
+/* BELOW 704px (Smaller tablets) */
+/**************************/
+/* 704px / 16 == 44 */
+@media (max-width: 44em) {
+  .nav-items {
+    display: none;
+  }
+  .imgs-div {
+    position: static;
+  }
+}
+
+/**************************/
+/* BELOW 544px (Phones) */
+/**************************/
+
+/* 544px / 16px */
+@media (max-width: 34em) {
 }
